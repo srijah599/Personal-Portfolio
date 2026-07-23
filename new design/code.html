@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>STUDIO_X | CREATIVE STRATEGY &amp; DESIGN</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for brutalist aesthetic */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #fbf9f9; }
+        ::-webkit-scrollbar-thumb { background: #000000; border-radius: 0; }
+        
+        body {
+            cursor: crosshair;
+        }
+
+        .line-through-hover:hover {
+            text-decoration: line-through;
+        }
+
+        .parallax-text {
+            will-change: transform;
+        }
+
+        .no-shadows * {
+            box-shadow: none !important;
+            text-shadow: none !important;
+        }
+
+        .grid-border-container > div {
+            border-right: 1px solid #000000;
+            border-bottom: 1px solid #000000;
+        }
+        
+        .grid-border-container {
+            border-top: 1px solid #000000;
+            border-left: 1px solid #000000;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-container": "#dfe0e0",
+                      "surface-container": "#efeded",
+                      "secondary": "#5d5f5f",
+                      "tertiary-fixed-dim": "#c6c6c6",
+                      "on-secondary-fixed-variant": "#454747",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed": "#e2e2e2",
+                      "surface-dim": "#dbdad9",
+                      "on-primary-fixed": "#1b1b1b",
+                      "background": "#fbf9f9",
+                      "surface-tint": "#5e5e5e",
+                      "secondary-fixed-dim": "#c6c6c7",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed": "#e2e2e2",
+                      "on-secondary-fixed": "#1a1c1c",
+                      "surface-container-high": "#e9e8e7",
+                      "primary-container": "#1b1b1b",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-container": "#848484",
+                      "on-secondary-container": "#616363",
+                      "tertiary-fixed": "#e2e2e2",
+                      "on-tertiary-fixed-variant": "#474747",
+                      "on-primary-fixed-variant": "#474747",
+                      "surface-container-highest": "#e3e2e2",
+                      "surface-bright": "#fbf9f9",
+                      "error": "#ba1a1a",
+                      "on-surface": "#1b1c1c",
+                      "inverse-primary": "#c6c6c6",
+                      "surface-variant": "#e3e2e2",
+                      "outline": "#7e7576",
+                      "inverse-surface": "#303031",
+                      "on-tertiary-fixed": "#1b1b1b",
+                      "tertiary-container": "#1b1b1b",
+                      "primary": "#000000",
+                      "on-background": "#1b1c1c",
+                      "on-primary-container": "#848484",
+                      "surface-container-low": "#f5f3f3",
+                      "tertiary": "#000000",
+                      "primary-fixed-dim": "#c6c6c6",
+                      "on-surface-variant": "#4c4546",
+                      "outline-variant": "#cfc4c5",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#f2f0f0",
+                      "surface": "#fbf9f9",
+                      "on-error": "#ffffff",
+                      "on-error-container": "#93000a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0px",
+                      "lg": "0px",
+                      "xl": "0px",
+                      "full": "0px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "margin-desktop": "64px",
+                      "unit": "4px",
+                      "margin-mobile": "20px",
+                      "container-max": "1440px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Hanken Grotesk"],
+                      "display-lg": ["Hanken Grotesk"],
+                      "display-lg-mobile": ["Hanken Grotesk"],
+                      "headline-sm": ["Hanken Grotesk"],
+                      "body-lg": ["JetBrains Mono"],
+                      "label-caps": ["Hanken Grotesk"],
+                      "body-md": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                      "display-lg-mobile": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                      "headline-sm": ["24px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                      "label-caps": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                      "body-md": ["15px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+      </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+</head>
+<body class="bg-background text-primary font-body-md selection:bg-primary selection:text-white no-shadows overflow-x-hidden">
+<!-- TopNavBar Component -->
+<nav class="fixed top-0 w-full z-50 bg-background border-b border-primary">
+<div class="flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto">
+<div class="font-headline-sm text-headline-sm font-bold tracking-tighter text-primary">STUDIO_X</div>
+<div class="hidden md:flex items-center space-x-12">
+<a class="font-label-caps text-label-caps text-primary line-through transition-none" href="#work">WORK</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary hover:line-through transition-none" href="#about">ABOUT</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary hover:line-through transition-none" href="#contact">CONTACT</a>
+</div>
+<button class="font-label-caps text-label-caps bg-primary text-on-primary px-8 py-3 transition-none hover:bg-background hover:text-primary border border-primary">
+                INQUIRE
+            </button>
+</div>
+</nav>
+<!-- Fixed Background Animation -->
+<div class="fixed inset-0 w-full h-full -z-10 opacity-30 pointer-events-none" id="threejs-container-ANIMATION_8">
+<!-- Three.js will inject canvas here -->
+</div>
+<!-- Hero Section -->
+<section class="min-h-screen flex flex-col justify-center items-center px-margin-mobile md:px-margin-desktop relative overflow-hidden">
+<div class="max-w-container-max w-full text-center z-10">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-12 max-w-5xl mx-auto break-words">
+                STUDIO X. CREATIVE STRATEGY &amp; DESIGN.
+            </h1>
+<div class="flex flex-col md:flex-row justify-center gap-6 mt-12">
+<a class="bg-primary text-white font-label-caps text-label-caps px-12 py-5 border border-primary hover:bg-white hover:text-black transition-all" href="#work">
+                    VIEW PROJECTS
+                </a>
+<a class="bg-white text-black font-label-caps text-label-caps px-12 py-5 border border-primary hover:bg-black hover:text-white transition-all" href="#contact">
+                    START PROJECT
+                </a>
+</div>
+</div>
+<!-- Parallax Accent Text -->
+<div class="absolute bottom-12 left-margin-desktop hidden lg:block opacity-10">
+<span class="font-display-lg text-display-lg parallax-text" data-speed="0.2">EST. 2024</span>
+</div>
+<div class="absolute top-32 right-margin-desktop hidden lg:block opacity-10">
+<span class="font-display-lg text-display-lg parallax-text" data-speed="-0.1">00.X</span>
+</div>
+</section>
+<!-- Expertise Section -->
+<section class="py-32 md:py-48 bg-white border-y border-primary relative z-10" id="about">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="mb-24 flex flex-col md:flex-row justify-between items-end gap-8">
+<h2 class="font-headline-lg text-headline-lg uppercase">Core Expertise</h2>
+<p class="font-body-lg text-body-lg max-w-md text-secondary">
+                    Architecting digital experiences through a lens of brutalist simplicity and strategic precision.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-l border-primary">
+<!-- Infrastructure -->
+<div class="p-12 border-r border-b border-primary hover:bg-surface-container-low transition-colors group">
+<div class="mb-12 aspect-square overflow-hidden border border-primary">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A minimal brutalist illustration of a complex abstract structure consisting of intersecting grids and sharp geometric lines, representing 'Infrastructure'. The artwork is rendered in high-contrast black and white on a white background, following a strict modernist aesthetic for a professional design portfolio. No gradients are used, emphasizing the stark architectural precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAktbfqw8n0AJGPUhkSihYdw3Te4BoeJrq4bVB3WCOMBVTfl5lrGt00jHt5WYQRdsHS8ksed2aOXrxVy3NPWI5TNmk01QYt822os6-kfG_pv6BWOU9Wc8jROaJ-9CzcHswOeYQ3mxxa5KGIcQWU6t-ncRxTwyn5dvXtI8DRvt8Ebgsuaeeujc8i0G7R1JOotNfwQ0Va_MmABCMsP5dYUJAM4MDKklRnGkxwKtED5Zmyf4HwmG9ZdeM"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-4 uppercase">Infrastructure</h3>
+<p class="font-body-md text-body-md text-secondary">Foundational systems built for scale and stability. Logic-first architecture.</p>
+</div>
+<!-- Core -->
+<div class="p-12 border-r border-b border-primary hover:bg-surface-container-low transition-colors group">
+<div class="mb-12 aspect-square overflow-hidden border border-primary">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A minimal brutalist illustration of a floating sphere composed of sharp, fragmented geometric shards, representing 'Core' strength and identity. The aesthetic is monochromatic with high-key lighting, maintaining a pure black and white palette. The illustration is part of a series for a creative studio portfolio, focusing on precision and modernist design principles." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAktbfqw8n0AJGPUhkSihYdw3Te4BoeJrq4bVB3WCOMBVTfl5lrGt00jHt5WYQRdsHS8ksed2aOXrxVy3NPWI5TNmk01QYt822os6-kfG_pv6BWOU9Wc8jROaJ-9CzcHswOeYQ3mxxa5KGIcQWU6t-ncRxTwyn5dvXtI8DRvt8Ebgsuaeeujc8i0G7R1JOotNfwQ0Va_MmABCMsP5dYUJAM4MDKklRnGkxwKtED5Zmyf4HwmG9ZdeM"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-4 uppercase">Core</h3>
+<p class="font-body-md text-body-md text-secondary">The essence of the brand. Distilled design DNA that powers interaction.</p>
+</div>
+<!-- Growth -->
+<div class="p-12 border-r border-b border-primary hover:bg-surface-container-low transition-colors group">
+<div class="mb-12 aspect-square overflow-hidden border border-primary">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A minimal brutalist illustration of a vertical tower formed by stacked, ascending rectangular prisms, representing 'Growth' and progress. The artwork features sharp edges and high contrast, using only pure black and white. It fits a high-end design agency's visual language, emphasizing verticality and structured expansion through minimalist geometric forms." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAktbfqw8n0AJGPUhkSihYdw3Te4BoeJrq4bVB3WCOMBVTfl5lrGt00jHt5WYQRdsHS8ksed2aOXrxVy3NPWI5TNmk01QYt822os6-kfG_pv6BWOU9Wc8jROaJ-9CzcHswOeYQ3mxxa5KGIcQWU6t-ncRxTwyn5dvXtI8DRvt8Ebgsuaeeujc8i0G7R1JOotNfwQ0Va_MmABCMsP5dYUJAM4MDKklRnGkxwKtED5Zmyf4HwmG9ZdeM"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-4 uppercase">Growth</h3>
+<p class="font-body-md text-body-md text-secondary">Strategic evolution and measurable impact. Scaling through intent.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Selected Work Section -->
+<section class="py-32 md:py-48 px-margin-mobile md:px-margin-desktop" id="work">
+<div class="max-w-container-max mx-auto">
+<div class="flex justify-between items-baseline border-b border-primary mb-16 pb-8">
+<h2 class="font-headline-lg text-headline-lg uppercase">Selected Work</h2>
+<div class="font-label-caps text-label-caps text-secondary">VIEW ALL (08)</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Project 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] border border-primary overflow-hidden relative mb-6">
+<div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition-opacity z-10"></div>
+<img class="w-full h-full object-cover grayscale" data-alt="A set of minimal geometric line-art illustrations on a white background, showcasing abstract shapes like circles, triangles, and squares interconnected by clean paths. The style is brutalist and professional, using only black and white with high-contrast sharp edges. This visual represents a 'Strategy' project in a high-end creative portfolio, emphasizing clarity and structural design." src="https://lh3.googleusercontent.com/aida/AP1WRLsZyn6OA-Cd3r2WXrFpznvpecPTxmD-FINuqfAK_LlR9Htz6VrwQL77SB4gtYwR2lvBq6cnukw4Pj7tKISWRJWNws9w3Om2aUkc9WD0JOZCmjYG_gbdbQjQjEjrqIkifImvkm49RXn7mPbmXUhonRpervhfwDtTPixZC0UCM-3-sY2QWazPUrQa7qmP6LD27Lngq3jN_asNK7BgNGoJThCCZAegdXRVUOcTwVvZN6Fz3Kau6CYLgWm1ew"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline-sm text-headline-sm uppercase">Nexus Framework</h4>
+<p class="font-body-md text-body-md text-secondary">STRATEGY / BRANDING</p>
+</div>
+<div class="font-body-md text-body-md">2023</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="group cursor-pointer md:mt-24">
+<div class="aspect-[4/5] border border-primary overflow-hidden relative mb-6">
+<div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition-opacity z-10"></div>
+<img class="w-full h-full object-cover grayscale" data-alt="A photograph of a brutalist concrete building with sharp, dramatic shadows under a bright midday sun. The composition is focused on the texture of the raw concrete and the interplay of geometric volumes. The style is strictly monochromatic, fitting a high-end architectural portfolio. The lighting is harsh and direct, creating deep black shadows and bright white highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCX9QsyKh3iyPGwg2CjtUgUfnyFe125vkYXdjocxnpof48KgQEQgDhX2QUiAYUVqoyt4exDjSpiMeKtdZ6JcATzMBifY0t1kD1aRCleCMKLUw7xiRKaV56e51HK4ioCuQsk6rL_WgCyBmUX-0dCcr0wM0hIGdhwfk9U2ezOvl7qG8vAYo1XsIRpcKtc7f4MqDWNSub5LF9qjrtOmx0bt20ke0svwHoDDsVe769Utma6klofQlqOwcA"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline-sm text-headline-sm uppercase">Monolith Urbanism</h4>
+<p class="font-body-md text-body-md text-secondary">ARCHITECTURE / DESIGN</p>
+</div>
+<div class="font-body-md text-body-md">2024</div>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="group cursor-pointer -mt-12 md:-mt-24">
+<div class="aspect-[4/5] border border-primary overflow-hidden relative mb-6">
+<div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition-opacity z-10"></div>
+<img class="w-full h-full object-cover grayscale" data-alt="A minimalist editorial layout showing clean typography and large white spaces. The image features high-contrast black and white photography of a modernist glass structure. The design is sophisticated and gallery-like, reflecting a brutalist-lite digital presence with no rounded corners or soft colors. The overall mood is precise, authoritative, and timeless." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2JzVy9WK6P6tvqqO4bgF_E0ijcLS6FWO-Z6E11ihUcb7HfUtY1Zi2Jx5IFMZXBgswiClYRrPXturpj08hRGHdBfyK8vNj8cQpy_tcfhsDvgYeEocIlhOmj9x-recH_yredhyoj20YT4xI39G2ZF1e7_cJs-0zzkm_kANosvqqlGEuJwYkEVBMUhcyt8m5j2FH8C3erXPJpt-nL7jRo3R68RkgQpcYdquBvb1fA2Eu-Rzfzrehfb0"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline-sm text-headline-sm uppercase">Vortex Identity</h4>
+<p class="font-body-md text-body-md text-secondary">VISUAL SYSTEMS</p>
+</div>
+<div class="font-body-md text-body-md">2024</div>
+</div>
+</div>
+<!-- Project 4 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] border border-primary overflow-hidden relative mb-6">
+<div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition-opacity z-10"></div>
+<img class="w-full h-full object-cover grayscale" data-alt="A high-contrast black and white photograph of an abstract staircase made of brushed steel and concrete. The perspective is from below, looking up, creating a series of receding sharp angles and clean lines. The lighting is cinematic, highlighting the metallic texture and the purity of the geometric form. This image fits the 'brutalist architectural references' requested for the portfolio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgIHYzhkOMQ5Huw6R4Ls5xZU8Cf7nKNm3UmUFUU8OHcyFxjKbmP8aP_-T9mTHjSbjeEkWQ9tWKmuQ7IAU6t4Csvy8SXhXxB0KoJyH4N4Y-QVXJ4Joz8zL4k7BjEXXztruj1KmDjQlvu138LAqE3IHSppNooVmiyYqQPDVBDu5lDK1cJ-AChMDupERjoWXg06A0bz3xdXPQ1npIFcHljhaCFUr0N8po8W3Sz9RiEBFVXZaR0QZXZkw"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline-sm text-headline-sm uppercase">Linear Complex</h4>
+<p class="font-body-md text-body-md text-secondary">WEB INFRASTRUCTURE</p>
+</div>
+<div class="font-body-md text-body-md">2023</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Philosophy Section -->
+<section class="py-48 md:py-64 bg-primary text-on-primary">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
+<h2 class="font-body-lg text-body-lg text-on-primary-container mb-8 uppercase tracking-widest">Our Philosophy</h2>
+<div class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg font-bold italic">
+                "REDUCING NOISE.<br/>AMPLIFYING IMPACT."
+            </div>
+<p class="font-body-lg text-body-lg max-w-2xl mx-auto mt-16 font-body-lg">
+                WE BELIEVE IN THE POWER OF DISTILLATION. EVERY ELEMENT SERVES A PURPOSE. EVERY LINE TELLS A STORY. NO ORNAMENT. JUST ESSENCE.
+            </p>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-32 md:py-48 px-margin-mobile md:px-margin-desktop bg-white" id="contact">
+<div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24">
+<div>
+<h2 class="font-headline-lg text-headline-lg uppercase mb-12">Let's build<br/>the future.</h2>
+<div class="space-y-12">
+<div>
+<span class="font-label-caps text-label-caps text-secondary block mb-4 uppercase">Direct Inquiry</span>
+<a class="font-headline-sm text-headline-sm hover:line-through transition-none" href="mailto:hello@studiox.com">HELLO@STUDIOX.COM</a>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-secondary block mb-4 uppercase">Social Platforms</span>
+<div class="flex gap-8">
+<a class="font-body-md text-body-md hover:line-through" href="#">INSTAGRAM</a>
+<a class="font-body-md text-body-md hover:line-through" href="#">LINKEDIN</a>
+<a class="font-body-md text-body-md hover:line-through" href="#">BEHANCE</a>
+</div>
+</div>
+</div>
+</div>
+<form class="space-y-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="border-b border-primary pb-4">
+<label class="font-label-caps text-label-caps text-secondary uppercase block mb-2">Name</label>
+<input class="w-full bg-transparent border-none p-0 focus:ring-0 font-body-md text-primary placeholder:text-surface-container-highest" placeholder="YOUR NAME" type="text"/>
+</div>
+<div class="border-b border-primary pb-4">
+<label class="font-label-caps text-label-caps text-secondary uppercase block mb-2">Email</label>
+<input class="w-full bg-transparent border-none p-0 focus:ring-0 font-body-md text-primary placeholder:text-surface-container-highest" placeholder="EMAIL ADDRESS" type="email"/>
+</div>
+</div>
+<div class="border-b border-primary pb-4">
+<label class="font-label-caps text-label-caps text-secondary uppercase block mb-2">Subject</label>
+<input class="w-full bg-transparent border-none p-0 focus:ring-0 font-body-md text-primary placeholder:text-surface-container-highest" placeholder="WHAT ARE WE BUILDING?" type="text"/>
+</div>
+<div class="border-b border-primary pb-4">
+<label class="font-label-caps text-label-caps text-secondary uppercase block mb-2">Message</label>
+<textarea class="w-full bg-transparent border-none p-0 focus:ring-0 font-body-md text-primary placeholder:text-surface-container-highest resize-none" placeholder="TELL US ABOUT THE PROJECT" rows="4"></textarea>
+</div>
+<button class="bg-primary text-white font-label-caps text-label-caps px-16 py-6 w-full md:w-auto border border-primary hover:bg-white hover:text-black transition-all" type="submit">
+                    SEND INQUIRY
+                </button>
+</form>
+</div>
+</section>
+<!-- Footer Component -->
+<footer class="bg-background border-t border-primary">
+<div class="flex flex-col md:flex-row justify-between items-center py-12 px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto gap-8">
+<div class="font-headline-sm text-headline-sm text-primary font-bold tracking-tighter">STUDIO_X</div>
+<div class="font-label-caps text-label-caps text-secondary uppercase">
+                ©2024 STUDIO_X. ALL RIGHTS RESERVED.
+            </div>
+<div class="flex gap-8">
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary hover:line-through transition-none" href="#">INSTAGRAM</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary hover:line-through transition-none" href="#">LINKEDIN</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary hover:line-through transition-none" href="#">TWITTER</a>
+</div>
+</div>
+</footer>
+<script>
+    // Three.js Background Animation Script
+    (function initThreeJS() {
+        const container = document.getElementById('threejs-container-ANIMATION_8');
+        if (!container) {
+            console.error('Three.js container not found: #threejs-container-ANIMATION_8');
+            return;
+        }
+
+        try {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ 
+                alpha: true, 
+                antialias: true 
+            });
+            
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            container.appendChild(renderer.domElement);
+
+            // Brutalist Geometric Sculpture
+            const geometry = new THREE.IcosahedronGeometry(2, 0); // Low-poly for brutalist feel
+            const material = new THREE.MeshPhongMaterial({
+                color: 0x000000,
+                wireframe: true,
+                emissive: 0x000000,
+                specular: 0x111111,
+                shininess: 30
+            });
+            
+            const sculpture = new THREE.Mesh(geometry, material);
+            sculpture.scale.set(1.8, 1.8, 1.8); // Increased prominence
+            scene.add(sculpture);
+
+            // Adding a solid inner core for depth
+            const innerGeometry = new THREE.IcosahedronGeometry(1.9, 0);
+            const innerMaterial = new THREE.MeshBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.05 });
+            const innerMesh = new THREE.Mesh(innerGeometry, innerMaterial);
+            sculpture.add(innerMesh);
+
+            // Lighting for high contrast against white/off-white background
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            scene.add(ambientLight);
+            
+            const pointLight = new THREE.PointLight(0xffffff, 1.5);
+            pointLight.position.set(5, 5, 5);
+            scene.add(pointLight);
+
+            camera.position.z = 5;
+
+            // Scroll-driven logic
+            let targetRotationX = 0;
+            let targetRotationY = 0;
+
+            window.addEventListener('scroll', () => {
+                const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+                targetRotationX = scrollPercent * Math.PI * 2;
+                targetRotationY = scrollPercent * Math.PI;
+            }, { passive: true });
+
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                // Smooth rotation
+                sculpture.rotation.x += (targetRotationX - sculpture.rotation.x) * 0.05 + 0.002;
+                sculpture.rotation.y += (targetRotationY - sculpture.rotation.y) * 0.05 + 0.003;
+                
+                renderer.render(scene, camera);
+            }
+
+            animate();
+
+            // Handle resize
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+
+            console.log('Three.js initialized successfully in #threejs-container-ANIMATION_8');
+        } catch (error) {
+            console.error('Error initializing Three.js:', error);
+        }
+    })();
+
+    // Simple parallax logic for text elements
+    document.addEventListener('scroll', () => {
+        const elements = document.querySelectorAll('.parallax-text');
+        const scrollY = window.pageYOffset;
+        
+        elements.forEach(el => {
+            const speed = el.getAttribute('data-speed') || 0.1;
+            el.style.transform = `translateY(${scrollY * speed}px)`;
+        });
+    });
+</script>
+</body></html>

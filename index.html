@@ -1,202 +1,429 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="scroll-smooth" lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./style.css.css">
-    <link rel="icon" type="image/x-icon" href="./logo.jpg">
-    <script src="./scripts.js.js" defer></script>
-    <title>Portfolio</title>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>SRIJA HALDER | FULL STACK DEVELOPER & TECH ENTHUSIAST</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for brutalist monochrome gallery */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #fbf9f9; }
+        ::-webkit-scrollbar-thumb { background: #000000; border-radius: 0; }
+        
+        * {
+            border-radius: 0px !important;
+        }
+
+        body {
+            cursor: crosshair;
+            background-color: #fbf9f9;
+            color: #1b1c1c;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .line-through-hover:hover {
+            text-decoration: line-through;
+        }
+
+        .parallax-text {
+            will-change: transform;
+        }
+
+        .no-shadows * {
+            box-shadow: none !important;
+            text-shadow: none !important;
+        }
+
+        .grid-border-container > div {
+            border-right: 1px solid #000000;
+            border-bottom: 1px solid #000000;
+        }
+        
+        .grid-border-container {
+            border-top: 1px solid #000000;
+            border-left: 1px solid #000000;
+        }
+
+        /* High-End 3D Card Lift Hover Animation */
+        .card-3d-lift {
+            transform-style: preserve-3d;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease, background-color 0.3s ease;
+        }
+        .card-3d-lift:hover {
+            transform: translateY(-8px) rotateX(2deg) rotateY(-1deg) scale(1.01);
+            border-color: #000000;
+        }
+    </style>
+
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-container": "#dfe0e0",
+                      "surface-container": "#efeded",
+                      "secondary": "#5d5f5f",
+                      "surface-dim": "#dbdad9",
+                      "background": "#fbf9f9",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-container": "#1b1b1b",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "primary": "#000000",
+                      "on-background": "#1b1c1c",
+                      "surface-container-low": "#f5f3f3",
+                      "on-primary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0px",
+                      "lg": "0px",
+                      "xl": "0px",
+                      "full": "0px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "margin-desktop": "64px",
+                      "unit": "4px",
+                      "margin-mobile": "20px",
+                      "container-max": "1440px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Hanken Grotesk", "sans-serif"],
+                      "display-lg": ["Hanken Grotesk", "sans-serif"],
+                      "headline-sm": ["Hanken Grotesk", "sans-serif"],
+                      "body-lg": ["JetBrains Mono", "monospace"],
+                      "label-caps": ["Hanken Grotesk", "sans-serif"],
+                      "body-md": ["JetBrains Mono", "monospace"]
+              }
+            },
+          },
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
 </head>
 
-<body>
-    <!-- nav -->
-    <div>
-        <div class="navbar-placeholder"></div>
-        <nav class="navbar flex">
-            <a href="#home"><img src="./logo.jpg" alt="logo" class="animation"></a>
-            <i class="fa-solid fa-bars animation"></i>
-            <div class="nav-menu flex">
-                <i class="fa-solid fa-x animation"></i>
-                <a href="#home" class="animation">Home</a>
-                <a href="#about" class="animation">About</a>
-                <a href="#services" class="animation">Services</a>
-                <a href="#work" class="animation">Portfolio</a>
-                <a href="#contact" class="animation">Contact</a>
-            </div>
-            <a href="#contact" class="btn nav-btn animation">Contact</a>
-        </nav>
-    </div>
-    
-    
-    <!-- hero -->
-    <div class="hero flex" id="home">
-        <img src="./hero-image.jfif" alt="web dev">
-        <h1><span class="text-effect">Hey There!!!</span> 
-           <p class="text-effect">This is Srija Halder. </p>  
-           <p class="text-effect">A Full Stack Developer and a Tech Enthusiast.</p></h1>
-           <a href="./Resume.pdf" class="hero-resume animation" target="_blank" rel="noopener noreferrer">Resume</a>
-    </div>
+<body class="bg-background text-primary font-body-md selection:bg-primary selection:text-white no-shadows overflow-x-hidden">
 
-    <!-- about -->
-    <section class="container flex" id="about">
-        <div class="container-title">
-            <h2>About Me</h2>
-            <img src="./decoration-heading.png" alt="decoration">
+    <!-- Top Navigation Bar -->
+    <nav class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-primary">
+        <div class="flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto">
+            <a href="#home" class="font-headline-sm text-headline-sm font-extrabold tracking-tighter text-primary">SRIJA_HALDER</a>
+            <div class="hidden md:flex items-center space-x-12">
+                <a class="font-label-caps text-label-caps text-secondary hover:text-primary line-through-hover transition-none" href="#about">ABOUT</a>
+                <a class="font-label-caps text-label-caps text-secondary hover:text-primary line-through-hover transition-none" href="#services">SERVICES</a>
+                <a class="font-label-caps text-label-caps text-primary line-through-hover transition-none" href="#work">WORK</a>
+                <a class="font-label-caps text-label-caps text-secondary hover:text-primary line-through-hover transition-none" href="#contact">CONTACT</a>
+            </div>
+            <a class="font-label-caps text-label-caps bg-primary text-on-primary px-8 py-3 transition-all hover:bg-background hover:text-primary border border-primary text-center" href="#contact">
+                INQUIRE
+            </a>
         </div>
-        <div class="about-sections flex">
-            <div class="about-left flex">
-                <img src="./coder-girl.jpg" alt="web dev">
+    </nav>
+
+    <!-- Three.js Background Wireframe Sculpture Animation -->
+    <div class="fixed inset-0 w-full h-full -z-10 opacity-25 pointer-events-none" id="threejs-container-sculpture"></div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex flex-col justify-center items-center px-margin-mobile md:px-margin-desktop relative overflow-hidden pt-20">
+        <div class="max-w-container-max w-full text-center z-10">
+            <p class="font-label-caps text-label-caps text-secondary tracking-widest uppercase mb-6">FULL STACK DEVELOPER & TECH ENTHUSIAST</p>
+            <h1 class="font-display-lg text-4xl sm:text-6xl md:text-7xl font-extrabold mb-8 max-w-5xl mx-auto tracking-tight leading-none uppercase">
+                SRIJA HALDER.<br/>CODE WITH PASSION.
+            </h1>
+            <p class="font-body-lg text-body-lg max-w-2xl mx-auto text-secondary mb-12">
+                Innovating with curiosity and shaping the future of technology one digital solution at a time.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6 mt-4">
+                <a class="bg-primary text-white font-label-caps text-label-caps px-12 py-5 border border-primary hover:bg-white hover:text-black transition-all card-3d-lift" href="#work">
+                    VIEW PROJECTS
+                </a>
+                <a class="bg-white text-black font-label-caps text-label-caps px-12 py-5 border border-primary hover:bg-black hover:text-white transition-all card-3d-lift" href="./Resume.pdf" target="_blank" rel="noopener noreferrer">
+                    DOWNLOAD RESUME
+                </a>
             </div>
-            <div class="about-right flex">
-                <p>Innovating with curiosity and coding with passion, shaping the future of technology one solution at a time.</p>
+        </div>
+        <!-- Parallax Accent Text -->
+        <div class="absolute bottom-12 left-margin-desktop hidden lg:block opacity-10">
+            <span class="font-display-lg text-6xl parallax-text" data-speed="0.2">EST. 2024</span>
+        </div>
+        <div class="absolute top-32 right-margin-desktop hidden lg:block opacity-10">
+            <span class="font-display-lg text-6xl parallax-text" data-speed="-0.1">01.DEV</span>
+        </div>
+    </section>
 
-
-
-                <p>Hey There! I’m Srija Halder, a 19-year-old B.Tech student in Electrical Engineering with a deep passion for computer science. I’m dedicated to learning programming, data science, AI, and cybersecurity, striving to transform my ideas into impactful digital solutions. My curiosity drives me to explore new concepts and technologies, and as I navigate my academic journey, I aim to combine my technical skills with a humble approach to innovation.
+    <!-- About Section -->
+    <section class="py-32 md:py-48 bg-white border-y border-primary relative z-10" id="about">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+            <div class="mb-24 flex flex-col md:flex-row justify-between items-end gap-8 border-b border-primary pb-12">
+                <h2 class="font-headline-lg text-headline-lg uppercase font-bold">About Me</h2>
+                <p class="font-body-lg text-body-lg max-w-md text-secondary">
+                    Bridging Electrical Engineering precision with full-stack software development.
                 </p>
             </div>
-        </div>
-        <div class="about-skills">
-            <div>
-                <h3>Web Development</h3>
-                <div class="about-skill flex animation">
-                    <p>HTML & CSS</p>
-                    <hr style="width: 100%;">
-                </div>
-                <div class="about-skill flex animation">
-                    <p>PHP</p>
-                    <hr style="width: 90%;">
-                </div>
-                <div class="about-skill flex animation">
-                    <p>JavaScript & Node.js</p>
-                    <hr style="width: 85%;">
-                </div>
-                <div class="about-skill flex animation">
-                    <p>react JS</p>
-                    <hr style="width: 75%;">
-                </div>
-            </div>
-        </div>
-        <div class="about-achievements flex">
-            <div class="about-achievement flex animation">
-                <h2 class="text-effect">2+</h2>
-                <p>Years of Experience</p>
-            </div>
-            <hr>
-            <div class="about-achievement flex animation">
-                <h2 class="text-effect">20+</h2>
-                <p>Completed Projects</p>
-            </div>
-            <hr>
-            <div class="about-achievement flex animation">
-                <h2 class="text-effect">10+</h2>
-                <p>Happy Employers & Clients</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- services -->
-    <section class="container flex" id="services">
-        <div class="container-title">
-            <h2>Services</h2>
-            <img src="./decoration-heading.png" alt="decoration">
-        </div>
-        <div class="grid-container">
-            <div class="services-format flex animation">
-                <h3>01</h3>
-                <h2 class="text-effect">Frontend Dev</h2>
-                <p>Utilizing Html, CSS, JavaScript, React, & more to create incredible interfaces</p>
-            </div>
-            <div class="services-format flex animation">
-                <h3>02</h3>
-                <h2 class="text-effect">Backend Dev</h2>
-                <p>Utilizing PHP & Node.js to create fullstack websites & apps</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- work -->
-    <main class="container flex" id="work">
-        <div class="container-title">
-            <h2>Portfolio</h2>
-            <img src="./decoration-heading.png" alt="decoration">
-        </div>
-        <div class="grid-container">
-            <div>
-                <h4 class="work-name">Full Stack Dev</h4>
-                <a href="https://srijahalder.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="./work-ex1.png" alt="work ex" class="animation">
-                </a>
-            </div>
-            <div>
-                <h4 class="work-name">WordPress</h4>
-                <a href="https://srijahalder.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="./work-ex2.png" alt="work ex 2" class="animation">
-                </a>
-            </div>
-        </div>
-    </main>
-
-    <!-- contact -->
-    <section class="container flex" id="contact">
-        <div class="container-title">
-            <h2>Contact</h2>
-            <img src="./decoration-heading.png" alt="decoration">
-        </div>
-        <div class="contact-section flex">
-            <div class="contact-left flex">
-                <h2 class="text-effect">Let's Connect</h2>
-                <p>Contact me about my services or and let's work together</p>
-                <div class="contact-details flex">
-                    <div class="contact-detail flex">
-                        <i class="fa-solid fa-envelope"></i>
-                        <p>srijah599@gmail.com</p>
-                    </div>
-                    <div class="contact-detail flex">
-                        <i class="fa-solid fa-phone"></i>
-                        <p>(+91) 98310 50525</p>
-                    </div>
-                    <div class="contact-detail flex">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <p>INDIA</p>
-                    </div>
-                </div>
-            </div>
-            <form action="https://formsubmit.co/srijah599@gmail.com" method="POST" class="contact-right flex">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name">
-                <label for="email">Your Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email">
-                <label for="phone number">Your Phone Number</label>
-                <input type="phone number" id="phone number" name="Phone Number" placeholder="Enter your Phone Number">
-                <label for="message">Enter a message</label>
-                <textarea name="message" id="message" placeholder="Leave a message"></textarea>
             
-                <button type="submit" class="btn animation">Submit</button>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-24">
+                <div class="border border-primary overflow-hidden aspect-[4/5] card-3d-lift">
+                    <img src="./coder-girl.jpg" alt="Srija Halder Developer" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                </div>
+                <div class="space-y-8 font-body-lg text-body-lg">
+                    <p class="text-primary font-bold text-xl uppercase">
+                        "Shaping the future of technology one solution at a time."
+                    </p>
+                    <p class="text-secondary">
+                        I’m Srija Halder, a B.Tech student in Electrical Engineering with a deep passion for computer science. I’m dedicated to mastering programming, full-stack development, data science, AI, and cybersecurity.
+                    </p>
+                    <p class="text-secondary">
+                        My curiosity drives me to explore new concepts and technologies, combining technical rigor with minimalist design principles.
+                    </p>
+                    
+                    <!-- Stats Grid -->
+                    <div class="grid grid-cols-3 gap-0 border-t border-l border-primary mt-12">
+                        <div class="p-6 border-r border-b border-primary text-center">
+                            <div class="font-headline-lg text-3xl font-extrabold">2+</div>
+                            <div class="font-label-caps text-xs text-secondary mt-1">Years Experience</div>
+                        </div>
+                        <div class="p-6 border-r border-b border-primary text-center">
+                            <div class="font-headline-lg text-3xl font-extrabold">20+</div>
+                            <div class="font-label-caps text-xs text-secondary mt-1">Projects Built</div>
+                        </div>
+                        <div class="p-6 border-r border-b border-primary text-center">
+                            <div class="font-headline-lg text-3xl font-extrabold">10+</div>
+                            <div class="font-label-caps text-xs text-secondary mt-1">Happy Clients</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-32 md:py-48 bg-background border-b border-primary relative z-10" id="services">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+            <div class="mb-24 flex flex-col md:flex-row justify-between items-end gap-8">
+                <h2 class="font-headline-lg text-headline-lg uppercase font-bold">Services & Expertise</h2>
+                <p class="font-body-lg text-body-lg max-w-md text-secondary">
+                    Architecting modern web applications through minimalist precision and robust code.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-0 border-t border-l border-primary">
+                <!-- Frontend Dev -->
+                <div class="p-12 border-r border-b border-primary bg-white hover:bg-surface-container-low transition-all card-3d-lift group">
+                    <div class="font-label-caps text-label-caps text-secondary mb-4">01 // FRONTEND</div>
+                    <h3 class="font-headline-sm text-2xl font-bold mb-4 uppercase">Frontend Architecture</h3>
+                    <p class="font-body-md text-body-md text-secondary mb-6">Utilizing HTML5, CSS3, JavaScript, and React.js to engineer ultra-responsive, accessible interfaces with crisp typography.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="font-label-caps text-xs px-3 py-1 border border-primary bg-background">REACT.JS</span>
+                        <span class="font-label-caps text-xs px-3 py-1 border border-primary bg-background">JAVASCRIPT</span>
+                        <span class="font-label-caps text-xs px-3 py-1 border border-primary bg-background">TAILWIND</span>
+                    </div>
+                </div>
+                <!-- Backend Dev -->
+                <div class="p-12 border-r border-b border-primary bg-white hover:bg-surface-container-low transition-all card-3d-lift group">
+                    <div class="font-label-caps text-label-caps text-secondary mb-4">02 // BACKEND</div>
+                    <h3 class="font-headline-sm text-2xl font-bold mb-4 uppercase">Backend & API Engineering</h3>
+                    <p class="font-body-md text-body-md text-secondary mb-6">Utilizing Node.js and PHP to construct scalable backend servers, database systems, and secure RESTful web APIs.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="font-label-caps text-xs px-3 py-1 border border-primary bg-background">NODE.JS</span>
+                        <span class="font-label-caps text-xs px-3 py-1 border border-primary bg-background">PHP</span>
+                        <span class="font-label-caps text-xs px-3 py-1 border border-primary bg-background">REST API</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Work Section -->
+    <section class="py-32 md:py-48 px-margin-mobile md:px-margin-desktop bg-white border-b border-primary" id="work">
+        <div class="max-w-container-max mx-auto">
+            <div class="flex justify-between items-baseline border-b border-primary mb-16 pb-8">
+                <h2 class="font-headline-lg text-headline-lg uppercase font-bold">Featured Projects</h2>
+                <div class="font-label-caps text-label-caps text-secondary">PROJECT ARCHIVE (02)</div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Project 1 -->
+                <div class="group cursor-pointer card-3d-lift">
+                    <div class="aspect-[4/3] border border-primary overflow-hidden relative mb-6">
+                        <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="./work-ex1.png" alt="Full Stack Web Application Case Study"/>
+                    </div>
+                    <div class="flex justify-between items-start border-t border-primary pt-4">
+                        <div>
+                            <h4 class="font-headline-sm text-xl font-bold uppercase">Full Stack Application</h4>
+                            <p class="font-body-md text-body-md text-secondary">NODE.JS / REACT / DATABASE</p>
+                        </div>
+                        <a href="https://srijahalder.com/" target="_blank" rel="noopener noreferrer" class="font-label-caps text-label-caps bg-primary text-white px-4 py-2 hover:bg-white hover:text-black border border-primary">LIVE DEMO</a>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="group cursor-pointer card-3d-lift">
+                    <div class="aspect-[4/3] border border-primary overflow-hidden relative mb-6">
+                        <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="./work-ex2.png" alt="WordPress Architecture Case Study"/>
+                    </div>
+                    <div class="flex justify-between items-start border-t border-primary pt-4">
+                        <div>
+                            <h4 class="font-headline-sm text-xl font-bold uppercase">WordPress Platform</h4>
+                            <p class="font-body-md text-body-md text-secondary">PHP / CUSTOM ARCHITECTURE</p>
+                        </div>
+                        <a href="https://srijahalder.com/" target="_blank" rel="noopener noreferrer" class="font-label-caps text-label-caps bg-primary text-white px-4 py-2 hover:bg-white hover:text-black border border-primary">LIVE DEMO</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Banner Section -->
+    <section class="py-32 md:py-48 bg-primary text-white">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
+            <h2 class="font-body-lg text-body-lg text-secondary mb-6 uppercase tracking-widest">DESIGN PHILOSOPHY</h2>
+            <div class="font-display-lg text-3xl sm:text-5xl md:text-6xl font-extrabold italic uppercase tracking-tight">
+                "REDUCING NOISE.<br/>AMPLIFYING IMPACT."
+            </div>
+            <p class="font-body-lg text-body-lg max-w-2xl mx-auto mt-12 text-secondary">
+                EVERY LINE OF CODE SERVES A PURPOSE. EVERY INTERACTION DELIVERS CLARITY. ZERO CLUTTER. JUST ESSENCE.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-32 md:py-48 px-margin-mobile md:px-margin-desktop bg-background" id="contact">
+        <div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24">
+            <div>
+                <h2 class="font-headline-lg text-headline-lg uppercase font-bold mb-12">LET'S BUILD<br/>THE FUTURE.</h2>
+                <div class="space-y-12">
+                    <div>
+                        <span class="font-label-caps text-label-caps text-secondary block mb-4 uppercase">Direct Contact</span>
+                        <a class="font-headline-sm text-xl md:text-2xl font-bold line-through-hover" href="mailto:srijah599@gmail.com">SRIJAH599@GMAIL.COM</a>
+                    </div>
+                    <div>
+                        <span class="font-label-caps text-label-caps text-secondary block mb-4 uppercase">Location & Phone</span>
+                        <p class="font-body-md text-body-md font-bold mb-2">INDIA (+91 98310 50525)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <form action="https://formsubmit.co/srijah599@gmail.com" method="POST" class="space-y-8 bg-white p-8 md:p-12 border border-primary card-3d-lift">
+                <div class="border-b border-primary pb-4">
+                    <label for="name" class="font-label-caps text-label-caps text-secondary uppercase block mb-2">Name</label>
+                    <input id="name" name="name" class="w-full bg-transparent border-none p-0 focus:ring-0 font-body-md text-primary placeholder:text-secondary/50" placeholder="YOUR NAME" type="text" required autocomplete="name"/>
+                </div>
+                <div class="border-b border-primary pb-4">
+                    <label for="email" class="font-label-caps text-label-caps text-secondary uppercase block mb-2">Email</label>
+                    <input id="email" name="email" class="w-full bg-transparent border-none p-0 focus:ring-0 font-body-md text-primary placeholder:text-secondary/50" placeholder="EMAIL ADDRESS" type="email" required autocomplete="email"/>
+                </div>
+                <div class="border-b border-primary pb-4">
+                    <label for="phone" class="font-label-caps text-label-caps text-secondary uppercase block mb-2">Phone</label>
+                    <input id="phone" name="phone" class="w-full bg-transparent border-none p-0 focus:ring-0 font-body-md text-primary placeholder:text-secondary/50" placeholder="PHONE NUMBER" type="tel" autocomplete="tel"/>
+                </div>
+                <div class="border-b border-primary pb-4">
+                    <label for="message" class="font-label-caps text-label-caps text-secondary uppercase block mb-2">Message</label>
+                    <textarea id="message" name="message" class="w-full bg-transparent border-none p-0 focus:ring-0 font-body-md text-primary placeholder:text-secondary/50 resize-none" placeholder="TELL ME ABOUT YOUR PROJECT" rows="4" required></textarea>
+                </div>
+                <button class="bg-primary text-white font-label-caps text-label-caps px-12 py-5 w-full border border-primary hover:bg-white hover:text-black transition-all cursor-pointer" type="submit">
+                    SEND INQUIRY
+                </button>
             </form>
         </div>
     </section>
 
-    <!-- footer -->
-    <footer class="flex">
-        <div class="footer-top flex">
-            <div class="footer-top-left">
-                <img src="./logo.jpg" alt="logo">
+    <!-- Footer -->
+    <footer class="bg-background border-t border-primary">
+        <div class="flex flex-col md:flex-row justify-between items-center py-12 px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto gap-8">
+            <div class="font-headline-sm text-headline-sm text-primary font-bold tracking-tighter">SRIJA_HALDER</div>
+            <div class="font-label-caps text-label-caps text-secondary uppercase">
+                ©2026 SRIJA HALDER. ALL RIGHTS RESERVED.
             </div>
-            <div class="footer-center">
-                <p>A fullstack developer & Instructional Designer with 2+ years of experience.</p>
+            <div class="flex gap-8">
+                <a class="font-label-caps text-label-caps text-secondary hover:text-primary line-through-hover transition-none" href="#">LINKEDIN</a>
+                <a class="font-label-caps text-label-caps text-secondary hover:text-primary line-through-hover transition-none" href="#">GITHUB</a>
             </div>
-        </div>
-        <hr>
-        <div class="footer-bottom-centre">
-            <p>©Srija Halder Design. All rights reserved.</p>
         </div>
     </footer>
-</body>
 
+    <!-- Three.js Interactive Fixed Viewport Parallax Sculpture Script -->
+    <script>
+        (function initThreeJS() {
+            const container = document.getElementById('threejs-container-sculpture');
+            if (!container) return;
+
+            try {
+                const scene = new THREE.Scene();
+                const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+                
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                container.appendChild(renderer.domElement);
+
+                // Low-Poly Brutalist Icosahedron Sculpture
+                const mainGeometry = new THREE.IcosahedronGeometry(2, 0);
+                const mainMaterial = new THREE.MeshBasicMaterial({
+                    color: 0x000000,
+                    wireframe: true,
+                    transparent: true,
+                    opacity: 0.18
+                });
+                
+                const sculpture = new THREE.Mesh(mainGeometry, mainMaterial);
+                sculpture.scale.set(1.8, 1.8, 1.8);
+                scene.add(sculpture);
+
+                camera.position.z = 5;
+
+                let scrollPercent = 0;
+                let mouseX = 0;
+                let mouseY = 0;
+
+                window.addEventListener('scroll', () => {
+                    scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+                }, { passive: true });
+
+                window.addEventListener('mousemove', (e) => {
+                    mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+                    mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+                });
+
+                function animate() {
+                    requestAnimationFrame(animate);
+                    
+                    sculpture.rotation.x = scrollPercent * Math.PI * 4 + mouseY * 0.2;
+                    sculpture.rotation.y = scrollPercent * Math.PI * 4 + mouseX * 0.2;
+
+                    renderer.render(scene, camera);
+                }
+
+                animate();
+
+                window.addEventListener('resize', () => {
+                    camera.aspect = window.innerWidth / window.innerHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(window.innerWidth, window.innerHeight);
+                });
+            } catch (error) {
+                console.error('Three.js Error:', error);
+            }
+        })();
+
+        // Parallax Text Accent Scroll
+        document.addEventListener('scroll', () => {
+            const elements = document.querySelectorAll('.parallax-text');
+            const scrollY = window.pageYOffset;
+            
+            elements.forEach(el => {
+                const speed = parseFloat(el.getAttribute('data-speed')) || 0.1;
+                el.style.transform = `translateY(${scrollY * speed}px) rotate(${scrollY * 0.02}deg)`;
+            });
+        });
+    </script>
+</body>
 </html>
